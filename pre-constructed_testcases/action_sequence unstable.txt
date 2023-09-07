@@ -1,0 +1,7 @@
+Obj 2 -> buffer
+Obj 3 -> buffer
+Obj 0 -> goal
+Obj 1 -> buffer
+Obj 3 -> goal
+Obj 1 -> goal
+Obj 2 -> goal
