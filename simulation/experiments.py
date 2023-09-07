@@ -61,13 +61,11 @@ def ilp_vs_greedy_experiment(test_type=1, inplace=True, trials=30, output='runti
                     solver = pyramid_test_2d(i, i, obj_scale=0.3, inplace=inplace)
                 elif test_type == 2:
                     solver = pyramid_test_3d_to_2d(i, i, obj_scale=0.3)
-                # print(case, 'test for', str(m_2d), 'objects:')
 
                 t0 = time.perf_counter()
                 ilp_buff_2d = solver.ilp_permutation_solver()
                 t1 = time.perf_counter()
                 times_ilp[j] = t1 - t0
-                # print("ILP runtime (sec):", str(times_ilp[j]))
 
                 t0 = time.perf_counter()
                 greedy_buff_2d = solver.greedy_solver()

@@ -94,10 +94,6 @@ class Solver:
 			if self.sim_type >= SimOptions.GUI:
 				if self.obj_to_colors:
 					p.changeVisualShape(sim_id, -1, rgbaColor=self.obj_to_colors[obj])
-				# p.addUserDebugText(str(obj), [0.4, 0, 0],
-				# 		textColorRGB=[0, 0, 0],
-				# 		textSize=1.5,
-				# 		parentObjectUniqueId=sim_id)
 			self.obj_to_sim_id[obj] = sim_id
 		self.start_id = p.saveState()
 		if self.sim_type >= SimOptions.GUI:
@@ -193,10 +189,6 @@ class Solver:
 			existing_var = model.getVarByName(name)
 			if self.verbose: print(existing_var)
 			seq_vars[i] = existing_var if existing_var else model.addVar(vtype=grb.GRB.BINARY, name=name)
-			# if existing_var:
-			# 	seq_vars[i] = existing_var
-			# else:
-			# 	seq_vars[i] = model.addVar(vtype=grb.GRB.BINARY, name=name)
 			# (permu[seq[i]] < unstable_move) -> seq_vars[i] == 1
 			model.addConstr((seq_vars[i] == 0) >> (permu[seq[i]] >= unstable_move), name)
 		and_constr_var = model.addVar(vtype=grb.GRB.BINARY)
@@ -218,7 +210,6 @@ class Solver:
 				seq_num = round(permu[obj].X)
 				seq[seq_num] = obj
 			for obj_id in seq:
-				# print(obj_id)
 				if stage[obj_id] == ObjStage.GOAL:
 					stable = True
 					if self.verbose: print(obj_id, "(already solved):", buff[obj_id].X)
@@ -365,7 +356,6 @@ class Solver:
 			if stage[v] == ObjStage.START:
 				# free obj v's start pose
 				dependencies = self.bfs(self.start.up, v)[:0:-1]
-				# print('Objects above', v, 'in start:', dependencies)
 				for u in dependencies:
 					if stage[u] == ObjStage.START:
 						# check if obj can be moved to goal
@@ -378,7 +368,6 @@ class Solver:
 							quit_fail()
 							return -1
 			# free obj v's goal pose
-			# print('goal_start_constraint for', str(v)+':', self.goal_start_constraint[v])
 			for u in self.goal_start_constraint[v]:
 				dependencies = self.bfs(self.start.up, u)[::-1]
 				for j in dependencies:

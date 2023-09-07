@@ -34,7 +34,6 @@ def get_colors(m, goal, mono=False):
                     colors[goal[obj]] = (0, 1 - hue, 1, 1)
                 elif i == 4:  # increase red
                     colors[goal[obj]] = (hue, 0, 1, 1)
-                # print(str(i)+':', str(obj)+',', colors[goal[obj]])
     return colors
 
 

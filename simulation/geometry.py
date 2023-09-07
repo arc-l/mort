@@ -23,7 +23,6 @@ def construct_shelf(n=5, k=5, obj_scale=0.3):
         for j in range(n):
             x = round(1.5*side_length*j, 2)
             pos = (x, 0, z)
-            # pos = ', '.join(map(str, pos))
             result[cnt] = pos
             cnt += 1
     return result
@@ -42,7 +41,6 @@ def construct_2d_pyramid(n=5, k=5, obj_scale=0.3, y=0):
         for j in range(n - i):
             x = round(layer_horizontal_offset + 1.5*side_length*j, 2)
             pos = (x, y, z)
-            # pos = ', '.join(map(str, pos))
             result[cnt] = pos
             cnt += 1
     return result
@@ -64,7 +62,6 @@ def construct_3d_pyramid(s=5, k=5, obj_scale=0.3):
             for l in range(s - i):
                 x = round(layer_horizontal_offset + 1.5*side_length*l, 2)
                 pos = (x, y, z)
-                # pos = ', '.join(map(str, pos))
                 result[cnt] = pos
                 cnt += 1
     return result

@@ -69,7 +69,6 @@ def generate_test(n, x, y, obj_scale, layers=2, mode=p.DIRECT):
     with open('start_'+str(n)+'_'+str(layers)+'layers.txt', 'w') as f:
         for i, pos in enumerate(obj_to_position):
             f.write(str(i)+': '+', '.join(map(str, pos))+'\n')
-    # return obj_to_position
 
 
 if __name__ == '__main__':

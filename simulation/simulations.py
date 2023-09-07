@@ -162,7 +162,6 @@ def general_cube_test(count, obj_scale=0.3, s_coords='start_coord.txt', g_coords
             tl2 = (obj_to_start_position[obj][0] - obj_scale, obj_to_start_position[obj][1] + obj_scale)
             br2 = (obj_to_start_position[obj][0] + obj_scale, obj_to_start_position[obj][1] - obj_scale)
             if check_overlap((tl1, br1), (tl2, br2)):
-                # print('start_up:', i, 'with', obj)
                 start_up[i].append(obj)
 
         goal_obj_pos = obj_to_goal_position[i]
@@ -172,7 +171,6 @@ def general_cube_test(count, obj_scale=0.3, s_coords='start_coord.txt', g_coords
             tl2 = (obj_to_goal_position[obj][0] - obj_scale, obj_to_goal_position[obj][1] + obj_scale)
             br2 = (obj_to_goal_position[obj][0] + obj_scale, obj_to_goal_position[obj][1] - obj_scale)
             if check_overlap((tl1, br1), (tl2, br2)):
-                # print('goal_up:', i, 'with', obj)
                 goal_up[i].append(obj)
 
     goal_start_constr = [[] for _ in range(m)]
@@ -197,19 +195,9 @@ def general_cube_test(count, obj_scale=0.3, s_coords='start_coord.txt', g_coords
                     unsolved_goal_obj.update(bfs(goal_up, obj))
         if next_lvl:
             q.append(next_lvl)
-    # print("real_goal_bot:", real_goal_bot)
-    # print("unsolved_goal_obj:", unsolved_goal_obj)
-    # print("alr_solved:", alr_solved)
 
     num_start_layers = len(start_layer_to_obj.keys())
     num_goal_layers = len(goal_layer_to_obj.keys())
-    # if num_start_layers == num_goal_layers:
-    #     print(s_coords, g_coords)
-    #     print("num_start_layers:", num_start_layers)
-    #     print(start_layer_to_obj)
-    #     print("num_goal_layers:", num_goal_layers)
-    #     print(goal_layer_to_obj)
-    # for goal_obj in range(m):
     for goal_obj in unsolved_goal_obj:
         goal_pos = obj_to_goal_position[goal_obj]
         tl1 = (goal_pos[0] - obj_scale, goal_pos[1] + obj_scale)
