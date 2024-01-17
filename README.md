@@ -27,4 +27,4 @@ Using a carefully constructed integer linear programming (ILP) model, our algori
 In the evaluation, we used three types of simulation-based evaluation setups.
 From left to right: 2D Pyramid, 3D Pyramid, and Random Pile.
 The top row shows the start configurations and the bottom row shows the corresponding goal configurations.
-![simulation](https://github.com/andyx0/MultiLayerObjectRearrangement/assets/77806295/4afd951f-5ec0-48f8-a42a-4344d6806921)
+![simulation](https://github.com/arc-l/mort/assets/77806295/707dfa99-447a-4f5b-baa9-dde4f1256923)
